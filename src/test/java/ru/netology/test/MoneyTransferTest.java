@@ -34,8 +34,8 @@ public class MoneyTransferTest {
         var transferPage = dashboardPage.transferToFirstCard(); //переход на страницу пополнение карты
 
         var amount = 500;
-        var CardInfo = getSecondCard();
-        transferPage.moneyTransfer(CardInfo, amount);
+        var cardInfo = getSecondCard();
+        transferPage.moneyTransfer(cardInfo, amount);
 
         var expectedBalanceOfFirstCard = getBalanceIfIncrease(balanceOfFirstCard, amount);
         var expectedBalanceOfSecondCard = getBalanceIfDecrease(balanceOfSecondCard, amount);
@@ -57,8 +57,8 @@ public class MoneyTransferTest {
         var transferPage = dashboardPage.transferToSecondCard(); //переход на страницу пополнение карты
 
         var amount = 2000;
-        var CardInfo = getFirstCard();
-        transferPage.moneyTransfer(CardInfo, amount);
+        var cardInfo = getFirstCard();
+        transferPage.moneyTransfer(cardInfo, amount);
 
         var expectedBalanceOfFirstCard = getBalanceIfDecrease(balanceOfFirstCard, amount);
         var expectedBalanceOfSecondCard = getBalanceIfIncrease(balanceOfSecondCard, amount);
@@ -80,8 +80,8 @@ public class MoneyTransferTest {
         var transferPage = dashboardPage.transferToSecondCard(); //переход на страницу пополнение карты
 
         var amount = 0;
-        var CardInfo = getFirstCard();
-        transferPage.moneyTransfer(CardInfo, amount);
+        var cardInfo = getFirstCard();
+        transferPage.moneyTransfer(cardInfo, amount);
 
         var expectedBalanceOfFirstCard = getBalanceIfDecrease(balanceOfFirstCard, amount);
         var expectedBalanceOfSecondCard = getBalanceIfIncrease(balanceOfSecondCard, amount);
@@ -119,16 +119,4 @@ public class MoneyTransferTest {
         transferPage.invalidMoneyTransfer();
     }
 
-    //@Test
-    //void shouldBeErrorWhenNotEnoughMoneyForTransfer() {
-    // var dashboardPage = new DashboardPage();
-
-    // var amount = dashboardPage.getCurrentBalanceOfSecondCard() + 10000;
-
-    // var transferPage = dashboardPage.transferToFirstCard();
-    //  var transferInfo = getSecondCard();
-
-    //  transferPage.moneyTransfer(transferInfo, amount);
-    //  transferPage.invalidMoneyTransfer();
-    // }
 }
